@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+public class Solucion {
+    
+    public static Object[] reportes(ArrayList<Estudiante> grupo) {
+        //EN ESTE ESPACIO PONER SU LÓGICA
+        double promedioNotas = 0;
+        String nombreEstudianteMenorNota = "";
+        double menorNota= Integer.MIN_VALUE;
+        String nombreEstudianteMayorNota = "";
+        double mayorNota = Integer.MAX_VALUE;
+         
+        for(int i=0;i<grupo.size();i++){
+        promedioNotas += grupo.get(i).getNota();
+        if(menorNota<grupo.get(i).getNota()){
+            menorNota=grupo.get(i).getNota();
+            nombreEstudianteMenorNota=grupo.get(i).getNombreCompleto();
+        }
+        if(mayorNota>grupo.get(i).getNota()){
+            mayorNota=grupo.get(i).getNota();
+            nombreEstudianteMayorNota=grupo.get(i).getNombreCompleto();
+        }
+        }
+        
+        promedioNotas = promedioNotas/grupo.size();
+        
+        Object[] nuevoArrayList = {promedioNotas, nombreEstudianteMayorNota, mayorNota, nombreEstudianteMenorNota, menorNota};
+        return nuevoArrayList;
+    
+        
+    }
+}
+
+//Clase Estudiante
+
+public class Estudiante {
+    //ATRIBUTOS
+    private String nombreCompleto;
+    private String documentoIdentidad;
+    private Double nota;
+    private int grado;
+    private int edad;
+
+    //CONSTRUCTOR
+    public Estudiante(String nombreCompleto, String documentoIdentidad, double nota, int grado, int edad) {
+        this.nombreCompleto = nombreCompleto;
+        this.documentoIdentidad = documentoIdentidad;
+        this.nota = nota;
+        this.grado = grado;
+        this.edad = edad;
+    }
+    
+    //GETTERS Y SETTERS
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public String getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public void setDocumentoIdentidad(String documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
+
+    public double getNota() {
+        return nota;
+    }
+
+    public void setNota(double nota) {
+        this.nota = nota;
+    }    
+
+    public int getGrado() {
+        return grado;
+    }
+
+    public void setGrado(int grado) {
+        this.grado = grado;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad=edad;
+    }
+}
