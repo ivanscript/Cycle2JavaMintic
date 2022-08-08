@@ -1,0 +1,34 @@
+public class Solution{
+    //ESTA CLASE NO TIENE MAIN    
+    
+    public static double[] reporte(double[] listaNotas) {
+        //EN ESTE ESPACIO PONER SU LÓGICA
+        double reporte[]= new double[3];
+        double sumatNotas=0;
+        
+        for(int i=0; i<listaNotas.length; i++){
+            sumatNotas=sumatNotas + listaNotas[i];
+        }
+        double promedio=sumatNotas/listaNotas.length;
+        
+        double notaMaxima=0;
+        
+        for(int i=0; i<listaNotas.length; i++){
+            if(listaNotas[i]>notaMaxima){
+                notaMaxima=listaNotas[i];
+            }
+        }
+        
+        double notaMinima=notaMaxima;
+        
+        for(int i=0; i<listaNotas.length; i++){
+            if(listaNotas[i]<notaMinima){
+                notaMinima=listaNotas[i];
+            }
+        }
+        reporte[0]=promedio;
+        reporte[1]=notaMinima;
+        reporte[2]=notaMaxima;
+        return reporte;
+    }
+}
